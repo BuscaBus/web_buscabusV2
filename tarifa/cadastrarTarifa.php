@@ -38,6 +38,9 @@
                 <option value="Executivo Urbano - Florianopolis"> Executivo Urbano - Florianopolis </option>
             </select> <br>
             <br>
+            DATA DE VIGÊNCIA<br>
+            <input id="input" type="date" name="data"> <br>
+            <br>
             <input type="submit" value="CADASTRAR"> <br>            
         </form>
     </div>
@@ -69,6 +72,9 @@
                 <option value="Patamar EXEC8"> Patamar EXEC8 </option>
             </select> <br>
             <br>
+            DATA DE VIGÊNCIA<br>
+            <input id="input" type="date" name="data"> <br>
+            <br>
             <input type="submit" value="CADASTRAR"> <br>          
         </form>
     </div>
@@ -87,6 +93,9 @@
                 <option value="Patamar PM1"> Patamar PM1 </option>
                 <option value="Patamar EXECSJ"> Patamar EXECSJ </option>             
             </select> <br>
+            <br>
+            DATA DE VIGÊNCIA<br>
+            <input id="input" type="date" name="data"> <br>
             <br>
             <input type="submit" value="CADASTRAR"> <br>           
         </form>
@@ -107,6 +116,9 @@
                 <option value="Patamar JSEC16"> Patamar JSEC16 </option>             
             </select> <br>
             <br>
+            DATA DE VIGÊNCIA<br>
+            <input id="input" type="date" name="data"> <br>
+            <br>
             <input type="submit" value="CADASTRAR"> <br>            
         </form>
     </div>
@@ -123,6 +135,9 @@
                 <option value="Patamar BM2"> Patamar BM </option>                           
             </select> <br>
             <br>
+            DATA DE VIGÊNCIA<br>
+            <input id="input" type="date" name="data"> <br>
+            <br>
             <input type="submit" value="CADASTRAR"> <br>           
         </form>
     </div>
@@ -137,6 +152,9 @@
                 <option value=""> Selecione um tipo de tarifa </option>
                 <option value="Patamar AC1"> Patamar AC1 </option>                                          
             </select> <br>
+            <br>
+            DATA DE VIGÊNCIA<br>
+            <input id="input" type="date" name="data"> <br>
             <br>
             <input type="submit" value="CADASTRAR"> <br> 
             <br>

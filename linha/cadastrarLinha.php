@@ -32,7 +32,7 @@
         <form action="cadastrarLinha_bd.php" method="post">
             EMPRESA <br>
             <select id="select" name="empresa">
-               <!--<option value=""> Selecione uma empresa </option>-->                
+              <option value=""> Selecione uma empresa </option>              
                <?php
                 while ($dados = mysqli_fetch_assoc($result)){
                ?>     
@@ -52,7 +52,7 @@
             <br>
             TIPO <br>
             <select id="select" name="tipo">
-                <!--<option value=""> Selecione tipo da linha </option>-->
+                <option value=""> Selecione tipo da linha </option>
                 <option value="Municipal - Florianopolis"> Municipal - Florianópolis </option>
                 <option value="Executivo - Florianopolis"> Executivo - Florianópolis </option>
                 <option value="Intermunicipal"> Intermunicipal </option>
