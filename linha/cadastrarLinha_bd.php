@@ -6,8 +6,9 @@ $codigo = $_POST['codigo'];
 $linha = $_POST['linha'];
 $tipo = $_POST['tipo'];
 $empresa = $_POST['empresa'];
+$tarifa = $_POST['tarifa'];
 
-$sql_cadastro = mysqli_query($mysqli,"INSERT INTO linha (cod_linha, nome_linha, tipo_linha, id_empresa) VALUES ('$codigo','$linha', '$tipo', '$empresa')");
+$sql_cadastro = mysqli_query($mysqli,"INSERT INTO linha (cod_linha, nome_linha, tipo_linha, id_empresa, id_tarifa) VALUES ('$codigo','$linha', '$tipo', '$empresa', '$tarifa')");
 
 if ($sql_cadastro == true) {
     echo " <script> 

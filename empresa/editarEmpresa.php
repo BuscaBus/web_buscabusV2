@@ -1,6 +1,6 @@
 <?php
 
-include_once("conexao.php");
+include_once("../conexao.php");
 
 $id = $_GET['id'];
 $sql_editar = mysqli_query($mysqli, "SELECT * FROM empresa WHERE id_empresa = '$id' ");
@@ -16,7 +16,7 @@ $dados = mysqli_fetch_array($sql_editar);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Nova Linha</title>
-    <link rel="stylesheet" href="./estilo.css">
+    <link rel="stylesheet" href="../estilo.css">
 
     <style>
         #select{

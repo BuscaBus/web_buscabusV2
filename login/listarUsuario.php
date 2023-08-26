@@ -22,7 +22,8 @@ include_once('../conexao.php');
 </head>
 <body>
     <h1>USUÁRIOS CADASTRADOS</h1>
-    <hr>  
+    <hr>
+    <br>  
     <div> 
     <table>
         <thead>

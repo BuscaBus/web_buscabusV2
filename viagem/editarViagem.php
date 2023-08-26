@@ -1,9 +1,9 @@
 <?php
 
-include_once("conexao.php");
+include_once("../conexao.php");
 
 $id = $_GET['id'];
-$sql_editar = mysqli_query($mysqli, "SELECT * FROM viagens WHERE id_viagem = '$id'");
+$sql_editar = mysqli_query($mysqli, "SELECT * FROM viagem WHERE id_viagem = '$id'");
 $dados = mysqli_fetch_array($sql_editar);
 ?>
 
@@ -14,7 +14,7 @@ $dados = mysqli_fetch_array($sql_editar);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuário</title>
-    <link rel="stylesheet" href="./estilo.css">   
+    <link rel="stylesheet" href="../estilo.css">   
 
     <style>
         #input1{
@@ -48,21 +48,18 @@ $dados = mysqli_fetch_array($sql_editar);
     <h2>Editar Viagem</h2>
         <form action="atualizarViagem.php" method="post">
             <input type="hidden" name="id" value = '<?=$dados[0]?>'>
-            LINHA <br>
-            <input id="input1" type="text" name="linha" value = '<?=$dados[1]?>'> <br>
-            <br>
             VIAGEM <br>
             <input id="input1" type="text" name="viagem" value = '<?=$dados[2]?>'> <br>
             <br>
+            PARTIDA <br>
+            <input id="input1" type="text" name="partida" value = '<?=$dados[3]?>'> <br>
+            <br>
             SENTIDO <br>
-            <input id="input1" type="text" name="sentido" value = '<?=$dados[3]?>'> <br>
-            <br>
-            BOX TERMINAL <br>
-            <input id="input1" type="text" name="box" value = '<?=$dados[4]?>'> <br>
-            <br>
+            <input id="input1" type="text" name="sentido" value = '<?=$dados[4]?>' disabled> <br>
+            <br>            
             <input type="submit" value="ATUALIZAR"> <br>
             <br>
-            <a href ="listarLinhas.php"> VOLTAR </a> <br>            
+            <a href ="../linha/listarLinhas.php"> VOLTAR </a> <br>            
         </form>
     </div>    
       

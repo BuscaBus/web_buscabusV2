@@ -24,8 +24,8 @@ if($_POST != NULL){
         #td1{
             width: 150px;
         }
-        #td2{
-            width: 50px;
+        #td2, #td6{
+            width: 65px;
         }
         #td3{
             width: 400px;
@@ -74,34 +74,32 @@ if($_POST != NULL){
                 <th>CODIGO</th>
                 <th>LINHA</th>
                 <th>TIPO</th>
+                <th>TARIFA</th>
                 <th>ATUALIZAÇÃO</th>
                 <th colspan="3">AÇÃO</th>
             </tr>
         </thead>
-
         <tbod>
             <?php
-            $sql_consulta = mysqli_query($mysqli, "SELECT e.nome_empresa, Id_linha, l.cod_linha, l.nome_linha, l.tipo_linha, l.data_vigencia FROM linha AS l JOIN empresa AS e ON l.id_empresa = e.id_empresa $filtro_sql ORDER BY cod_linha ASC");
+            $sql_consulta = mysqli_query($mysqli, "SELECT e.nome_empresa, Id_linha, l.cod_linha, l.nome_linha, l.tipo_linha, l.data_vigencia, t.valor_tarifa FROM linha AS l JOIN empresa AS e ON l.id_empresa = e.id_empresa JOIN tarifa AS t ON l.id_tarifa = t.id_tarifa $filtro_sql ORDER BY cod_linha ASC");
             $total_reg = mysqli_num_rows($sql_consulta);    
 
             while($dados = mysqli_fetch_array($sql_consulta)){
             
             ?> 
-a
             <tr>
                 <td id="td1"> <?=$dados[0]?></td>
                 <td id="td2"> <?=$dados[2]?></td>
                 <td id="td3"> <?=$dados[3]?></td>
                 <td id="td4"> <?=$dados[4]?></td>
-                <td id="td5"> <?=$dados[5] = date('d/m/y')?></td>
-                <td> <a href = "cadastrarViagem.php?id=<?=$dados[1]?>">VIAGENS </a> </td>
+                <td id="td6"> <?=$dados[6]?></td>
+                <td id="td5"> <?=$dados[5]?></td>
+                <td> <a href = "../viagem/cadastrarViagem.php?id=<?=$dados[1]?>">VIAGENS </a> </td>
                 <td> <a href = "editarLinha.php?id=<?=$dados[1]?>">EDITAR </a> </td>
                 <td> <a href = "excluirLinha.php?id=<?=$dados[1]?>">EXCLUIR </a> </td>                
-            </tr>    
-
+            </tr>  
             <?php } ?>           
-        </tbod>
-           
+        </tbod>           
     </table>
         <br>        
         <tr> <td> Total de linhas cadastradas: <?=$total_reg?> </td> </tr>

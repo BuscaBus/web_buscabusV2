@@ -26,6 +26,9 @@
         require_once ('../conexao.php');
         $sql = "SELECT nome_empresa, id_empresa FROM empresa";
         $result = mysqli_query($mysqli, $sql);
+        
+        $sql2 = "SELECT * FROM tarifa";
+        $result2 = mysqli_query($mysqli, $sql2);
        ?>
         <div>
         <h2>Cadastro de nova linha</h2>
@@ -61,6 +64,20 @@
                 <option value="Municipal - Palhoça"> Municipal - Palhoça </option>
                 <option value="Municipal - Biguaçu"> Municipal - Biguaçu </option>
                 <option value="Municipal - Antônio Carlos"> Municipal - Antônio Carlos </option>
+            </select> <br>
+            <br>
+            TARIFA <br>
+            <select id="select" name="tarifa">
+              <option value=""> Selecione tipo de tarifa </option>              
+               <?php
+                while ($dados = mysqli_fetch_assoc($result2)){
+               ?>     
+                <option value="<?php echo $dados['id_tarifa']?>">
+                    <?php echo $dados ['tipo_tarifa']?>
+                </option>
+                <?php
+                }
+                ?>
             </select> <br>
             <br>
             <input type="submit" value="CADASTRAR"> <br>

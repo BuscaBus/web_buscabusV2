@@ -42,9 +42,7 @@ $dados = mysqli_fetch_array($sql_editar);
             <input id="input" type="text" name="linha" value = '<?=$dados[2]?>'> <br>
             <br>
             TIPO <br>
-            <select id="select" name="tipo">
-                <option  value = '<?=$dados[4]?>'> <?=$dados[3]?></option> <br>
-            </select> <br>
+            <input id="input" type="text" name="tipo" value = '<?=$dados[3]?>' disabled> <br>
             <br>
             <input type="submit" value="ATUALIZAR"> <br> 
             <br>

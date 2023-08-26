@@ -1,6 +1,6 @@
 <?php
 
-include_once("conexao.php");
+include_once("../conexao.php");
 
 $id = $_GET['id'];
 $sql_editar = mysqli_query($mysqli, "SELECT * FROM linha WHERE id_linha = '$id'");
@@ -14,7 +14,7 @@ $dados = mysqli_fetch_array($sql_editar);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuário</title>
-    <link rel="stylesheet" href="./estilo.css">   
+    <link rel="stylesheet" href="../estilo.css">   
 
     <style>
         #input1{
@@ -47,13 +47,19 @@ $dados = mysqli_fetch_array($sql_editar);
     <hr>
     <div>
     <h2>Cadastrar Viagem</h2>
-        <form action="cadastraViagem.php" method="post">
+        <form action="cadastrarViagem_bd.php" method="post">
             <input type="hidden" name="id" value = '<?=$dados[0]?>'>
+            CÓDIGO <br>
+            <input id="input1" type="text" name="codigo" value = '<?=$dados[1]?>' disabled> <br>
+            <br>
             LINHA <br>
             <input id="input1" type="text" name="linha" value = '<?=$dados[2]?>' disabled> <br>
             <br>
             VIAGEM <br>
             <input id="input1" type="text" name="viagem"> <br>
+            <br>
+            PARTIDA <br>
+            <input id="input1" type="text" name="partida"> <br>
             <br>
             SENTIDO <br>
             <select id="select" name="sentido">
@@ -63,14 +69,10 @@ $dados = mysqli_fetch_array($sql_editar);
                 <option value="Ida"> Ida </option>
                 <option value="Volta"> Volta </option>
             </select> <br>
-            <br>
-            BOX TERMINAL <br>
-            <input id="input2" type="text" name="box"> <br>
-            <br>
-            <br>
+            <br>           
             <input type="submit" value="CADASTRAR"> <br>
             <br>
-            <a href ="listarLinhas.php"> VOLTAR </a> <br>            
+            <a href ="../linha/listarLinhas.php"> VOLTAR </a> <br>            
         </form>
     </div>    
     <hr>  
@@ -80,15 +82,15 @@ $dados = mysqli_fetch_array($sql_editar);
         <thead>
             <tr>
                 <th>VIAGEM</th>
+                <th>PARTIDA</th> 
                 <th>SENTIDO</th>  
-                <th>BOX</th>  
                 <th colspan="4">AÇÃO</th>           
             </tr>
         </thead>
 
         <tbod>
             <?php
-            $sql_consulta = mysqli_query($mysqli, "SELECT * FROM viagens WHERE linha = '$dados[2]' ORDER BY sentido ASC");
+            $sql_consulta = mysqli_query($mysqli, "SELECT * FROM viagem WHERE id_linha = '$dados[0]' ORDER BY sentido_viagem ASC");
             $total_reg = mysqli_num_rows($sql_consulta);    
 
             while($dados = mysqli_fetch_array($sql_consulta)){
@@ -99,7 +101,7 @@ $dados = mysqli_fetch_array($sql_editar);
                 <td id="td1"> <?=$dados[2]?></td>
                 <td id="td2"> <?=$dados[3]?></td>
                 <td id="td3"> <?=$dados[4]?></td>
-                <td> <a href = "cadastrarHorario.php?id=<?=$dados[0]?>">HORARIOS </a> </td>
+                <td> <a href = "../horario/cadastrarHorario.php?id=<?=$dados[0]?>">HORARIOS </a> </td>
                 <td> <a href = "listarPontos.php?id=<?=$dados[0]?>">PONTOS </a> </td>
                 <td> <a href = "editarViagem.php?id=<?=$dados[0]?>">EDITAR </a> </td>
                 <td> <a href = "excluirViagem.php?id=<?=$dados[0]?>">EXCLUIR </a> </td>

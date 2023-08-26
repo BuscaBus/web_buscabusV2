@@ -1,6 +1,6 @@
 <?php
 
-include_once("conexao.php");
+include_once("../conexao.php");
 
 ?>
 
@@ -37,7 +37,7 @@ include_once("conexao.php");
     <hr>
     <div>
     <br>    
-    <a href ="principal.php"> VOLTAR </a> 
+    <a href ="../principal.php"> VOLTAR </a> 
     <br>
     <h2>Horários</h2>  
     <form method="POST">
