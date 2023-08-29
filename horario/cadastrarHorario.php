@@ -43,7 +43,7 @@ $dados = mysqli_fetch_array($sql_editar);
     <div>
     <h2>Cadastrar Horário</h2>
         <form action="cadastrarHorario_bd.php" method="post">
-            <input type="hidden" name="id" value = '<?=$dados[0]?>'>
+            <input type="hidden" name="id_viagem" value = '<?=$dados[0]?>'>
             VIAGEM <br>
             <input id="input" type="text" name="viagem" value = '<?=$dados[2]?>' disabled> <br>
             <br>
@@ -78,7 +78,7 @@ $dados = mysqli_fetch_array($sql_editar);
 
         <tbod>
         <?php
-            $sql_consulta = mysqli_query($mysqli, "SELECT * FROM horarios WHERE viagem = '$dados[2]' AND dia_semana = 'Segunda a Sexta' ORDER BY  horario ASC");
+            $sql_consulta = mysqli_query($mysqli, "SELECT h.id_horario, v.nome_viagem, h.horario_viagem, h.dia_semana FROM horario AS h JOIN viagem AS v ON h.id_viagem = v.id_viagem WHERE nome_viagem = '$dados[2]' AND dia_semana = 'Segunda a Sexta' ORDER BY  horario_viagem ASC");
             $total_reg = mysqli_num_rows($sql_consulta);    
 
             while($dados1 = mysqli_fetch_array($sql_consulta)){
@@ -86,9 +86,9 @@ $dados = mysqli_fetch_array($sql_editar);
             ?> 
 
             <tr>
-                <td> <?=$dados1[5]?></td>
                 <td> <?=$dados1[2]?></td>
-                <td> <a href = "excluirHorario.php?id=<?=$dados[0]?>">EXCLUIR </a> </td>
+                <td> <?=$dados1[1]?></td>
+                <td> <a href = "excluirHorario.php?id=<?=$dados1[0]?>">EXCLUIR </a> </td>
             </tr>    
 
             <?php } ?>           
@@ -108,7 +108,7 @@ $dados = mysqli_fetch_array($sql_editar);
 
         <tbod>
         <?php
-            $sql_consulta = mysqli_query($mysqli, "SELECT * FROM horarios WHERE viagem = '$dados[2]' AND dia_semana = 'Sabado' ORDER BY  horario ASC");
+            $sql_consulta = mysqli_query($mysqli, "SELECT h.id_horario, v.nome_viagem, h.horario_viagem, h.dia_semana FROM horario AS h JOIN viagem AS v ON h.id_viagem = v.id_viagem WHERE nome_viagem = '$dados[2]' AND dia_semana = 'Sabado' ORDER BY  horario_viagem ASC");
             $total_reg = mysqli_num_rows($sql_consulta);    
 
             while($dados2 = mysqli_fetch_array($sql_consulta)){
@@ -116,9 +116,9 @@ $dados = mysqli_fetch_array($sql_editar);
             ?> 
 
             <tr>
-                <td> <?=$dados2[5]?></td>
                 <td> <?=$dados2[2]?></td>
-                <td> <a href = "excluirHorario.php?id=<?=$dados[0]?>">EXCLUIR </a> </td>
+                <td> <?=$dados2[1]?></td>
+                <td> <a href = "excluirHorario.php?id=<?=$dados2[0]?>">EXCLUIR </a> </td>
             </tr>    
 
             <?php } ?>           
@@ -138,7 +138,7 @@ $dados = mysqli_fetch_array($sql_editar);
 
         <tbod>
         <?php
-            $sql_consulta = mysqli_query($mysqli, "SELECT * FROM horarios WHERE viagem = '$dados[2]' AND dia_semana = 'Sabado' ORDER BY  horario ASC");
+            $sql_consulta = mysqli_query($mysqli, "SELECT h.id_horario, v.nome_viagem, h.horario_viagem, h.dia_semana FROM horario AS h JOIN viagem AS v ON h.id_viagem = v.id_viagem WHERE nome_viagem = '$dados[2]' AND dia_semana = 'Domingo e Feriado' ORDER BY  horario_viagem ASC");
             $total_reg = mysqli_num_rows($sql_consulta);    
 
             while($dados3 = mysqli_fetch_array($sql_consulta)){
@@ -146,9 +146,9 @@ $dados = mysqli_fetch_array($sql_editar);
             ?> 
 
             <tr>
-                <td> <?=$dados3[5]?></td>
                 <td> <?=$dados3[2]?></td>
-                <td> <a href = "excluirHorario.php?id=<?=$dados[0]?>">EXCLUIR </a> </td>
+                <td> <?=$dados3[1]?></td>
+                <td> <a href = "excluirHorario.php?id=<?=$dados3[0]?>">EXCLUIR </a> </td>
             </tr>    
 
             <?php } ?>           
