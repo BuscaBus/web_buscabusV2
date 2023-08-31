@@ -20,5 +20,4 @@ else {
         window.location.href = '../linha/listarLinhas.php';
     </script>";   
 }
-
 ?>
