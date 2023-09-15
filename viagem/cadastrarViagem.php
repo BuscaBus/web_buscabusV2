@@ -102,10 +102,10 @@ $dados = mysqli_fetch_array($sql_editar);
                 <td id="td2"> <?=$dados[3]?></td>
                 <td id="td3"> <?=$dados[4]?></td>
                 <td> <a href = "../horario/cadastrarHorario.php?id=<?=$dados[0]?>">HORARIOS </a> </td>
-                <td> <a href = "listarPontos.php?id=<?=$dados[0]?>">PONTOS </a> </td>
+                <td> <a href = "../ponto_viagem/cadastrarPontoViagem.php?id=<?=$dados[0]?>">PONTOS </a> </td>
                 <td> <a href = "editarViagem.php?id=<?=$dados[0]?>">EDITAR </a> </td>
                 <td> <a href = "excluirViagem.php?id=<?=$dados[0]?>">EXCLUIR </a> </td>
-            </tr>    
+            </tr>  
 
             <?php } ?>           
         </tbod>

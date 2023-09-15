@@ -11,13 +11,13 @@ $sql_atualizar = mysqli_query($mysqli,"INSERT INTO horario (id_viagem, horario_v
 if ($sql_atualizar == true) {
     echo " <script> 
         alert('Horário cadastrado com sucesso !!');
-        window.location.href = '../linha/listarLinhas.php';
-    </script>";  
-}
+        window.location.href = 'cadastrarHorario.php?id=$id_viagem';
+    </script>"; 
+} 
 else {
     echo " <script> 
         alert('Erro ao cadastrar horário');
-        window.location.href = '../linha/listarLinhas.php';
+        window.location.href = 'cadastrarHorario.php?id=$id_viagem';
     </script>";   
 }
 ?>

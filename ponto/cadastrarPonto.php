@@ -25,12 +25,31 @@ include_once("../conexao.php");
     <hr>
     <div>    
     <h2>Cadastrar Ponto</h2>
-        <form action="atualizarPonto.php" method="post">
-            CÓDIGO <br>
-            <input  id="input" type="text" name="codigo"> <br>
+        <form action="cadastrarPonto_bd.php" method="post">
+            ENDEREÇO <br>
+            <input  id="input" type="text" name="endereco"> <br>
             <br>
-            PONTO <br>
-            <input id="input" type="text" name="ponto"> <br>
+            BAIRRO <br>
+            <input id="input" type="text" name="bairro"> <br>
+            <br>
+            CIDADE <br>
+            <select id="input" name="cidade">
+                <option value=""> Selecione a cidade </option>
+                <option value="Aguas Monas"> Àguas Mornas </option>
+                <option value="Antonio Carlos"> Antônio Carlos </option>
+                <option value="Biguacu"> Biguaçu </option>
+                <option value="Florianopolis"> Florianópolis </option>
+                <option value="Governador Celso Ramos"> Governador Celso Ramos </option>
+                <option value="Palhoça"> Palhoça </option>
+                <option value="Sao Jose"> São José </option>         
+                <option value="Santo Amaro da Imperatriz"> Santo Amaro da Imperatriz </option>               
+            </select> <br>
+            <br>
+            LATITUDE <br>
+            <input id="input" type="text" name="latitude"> <br>
+            <br>
+            LONGITUDE <br>
+            <input id="input" type="text" name="longitude"> <br>
             <br>
             <input type="submit" value="CADASTRAR"> <br>
             <br>
