@@ -18,8 +18,8 @@
         <a href="linha/listarLinhas.php"><li>LINHAS</li></a>
         <a href="tarifa/listarTarifa.php"><li>TARIFAS</li></a>
         <a href="ponto/listarPonto.php"><li>PONTOS</li></a>
-        <a href="listarBox.php"><li>TERMINAL/BOX</li></a>
-        <a href="verHorarios.php"><li>HORÁRIOS</li></a>
+        <a href="mapa/mapa.php"><li>MAPA</li></a>
+        <a href="carregar_dados/carregarDados.php"><li>CARREGAR DADOS</li></a>
         <a href="verHorariosBox.php"><li>HORÁRIOS POR BOX</li></a>
     </ul>
 </body>

@@ -27,7 +27,7 @@
         $sql = "SELECT nome_empresa, id_empresa FROM empresa";
         $result = mysqli_query($mysqli, $sql);
         
-        $sql2 = "SELECT * FROM tarifa";
+        $sql2 = "SELECT * FROM tarifa ORDER BY tipo_tarifa ASC";
         $result2 = mysqli_query($mysqli, $sql2);
        ?>
         <div>
@@ -56,8 +56,8 @@
             TIPO <br>
             <select id="select" name="tipo">
                 <option value=""> Selecione tipo da linha </option>
-                <option value="Municipal - Florianopolis"> Municipal - Florianópolis </option>
-                <option value="Executivo - Florianopolis"> Executivo - Florianópolis </option>
+                <option value="Municipal - Florianópolis"> Municipal - Florianópolis </option>
+                <option value="Executivo - Florianópolis"> Executivo - Florianópolis </option>
                 <option value="Intermunicipal"> Intermunicipal </option>
                 <option value="Executivo - Intermunicipal"> Executivo - Intermunicipal </option>
                 <option value="Municipal - São José"> Municipal - São José </option>

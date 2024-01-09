@@ -2,11 +2,12 @@
 
 require_once ('../conexao.php');
 
+$categoria = $_POST['categoria'];
 $valor = $_POST['valor'];
 $tipo = $_POST['tipo'];
 $data = $_POST['data'];
 
-$sql_cadastro = mysqli_query($mysqli,"INSERT INTO tarifa (valor_tarifa, tipo_tarifa, data_vigencia) VALUES ('$valor','$tipo', '$data')");
+$sql_cadastro = mysqli_query($mysqli,"INSERT INTO tarifa (categoria_tarifa, valor_tarifa, tipo_tarifa, data_vigencia) VALUES ('$categoria','$valor','$tipo', '$data')");
 
 if ($sql_cadastro == true) {
     echo " <script> 

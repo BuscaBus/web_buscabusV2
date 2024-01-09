@@ -15,13 +15,13 @@ include_once('../conexao.php');
 
     <style>
         #td1{
-            width: 200px;
+            width: 250px;
         }
         #td2{
             width: 200px;
         }
         #td3{
-            width: 200px;
+            width: 300px;
         }
         #select{
             width: 250px;
@@ -58,7 +58,7 @@ include_once('../conexao.php');
             <tr>
                 <td id="td1"> <?=$dados[1]?></td>
                 <td id="td2"> <?=$dados[2]?></td>
-                <td id="td2"> <?=$dados[3]?></td>
+                <td id="td3"> <?=$dados[3]?></td>
                 <td> <a href = "editarEmpresa.php?id=<?=$dados[0]?>">EDITAR </a> </td>
                 <td> <a href = "excluirEmpresa.php?id=<?=$dados[0]?>">EXCLUIR </a> </td>                
             </tr>    

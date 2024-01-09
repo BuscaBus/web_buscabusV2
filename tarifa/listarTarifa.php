@@ -6,7 +6,7 @@ $filtro_sql = "";
 
 if($_POST != NULL){
     $filtro_select = $_POST["filtro_select"];
-    $filtro_sql = "WHERE tipo_tarifa = '$filtro_select'";
+    $filtro_sql = "WHERE categoria_tarifa = '$filtro_select'";
 }
 
 ?>
@@ -48,13 +48,13 @@ if($_POST != NULL){
         Pesquisar: 
             <select name="filtro_select" id="select">
             <?php
-                echo '<option value="'.$filtro_select.'" disabled selected>'.((empty($filtro_select)) ? "Selecione o tipo de tarifa" : $filtro_select).'</option>';
+                echo '<option value="'.$filtro_select.'" disabled selected>'.((empty($filtro_select)) ? "Selecione a categoria de tarifa" : $filtro_select).'</option>';
 
-                $sql = "SELECT id_tarifa, tipo_tarifa, data_vigencia FROM tarifa";
+                $sql = "SELECT categoria_tarifa FROM tarifa GROUP BY categoria_tarifa";
                 $result = $mysqli->query($sql);
 
-                while($empresa = mysqli_fetch_array($result)){
-                echo "<option value='".$empresa['tipo_tarifa']."'>".$empresa['tipo_tarifa']."</option>";
+                while($categoria = mysqli_fetch_array($result)){
+                echo "<option value='".$categoria['categoria_tarifa']."'>".$categoria['categoria_tarifa']."</option>";
                 }
             ?>
              <input type = "submit" value = "BUSCAR"/> <br>          
@@ -73,7 +73,7 @@ if($_POST != NULL){
         </thead>
         <tbod>
             <?php
-            $sql_consulta = mysqli_query($mysqli, "SELECT * FROM tarifa $filtro_sql ORDER BY tipo_tarifa ASC");
+            $sql_consulta = mysqli_query($mysqli, "SELECT id_tarifa, valor_tarifa, tipo_tarifa, DATE_FORMAT(data_vigencia,'%d/%m/%y') FROM tarifa $filtro_sql ORDER BY tipo_tarifa ASC");
             $total_reg = mysqli_num_rows($sql_consulta);    
 
             while($dados = mysqli_fetch_array($sql_consulta)){            

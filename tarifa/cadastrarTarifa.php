@@ -26,6 +26,9 @@
         <h2>Cadastro de tarifas</h2>
         <h2>Florianópolis - Municipal</h2>    
         <form action="cadastrarTarifa_bd.php" method="post">
+            CATEGORIA<br>
+            <input id="input" type="text" name="categoria" value="Municipal - Florianópolis" disabled> <br>
+            <br>
             VALOR<br>
             <input id="input" type="text" name="valor"> <br>
             <br>
@@ -34,8 +37,8 @@
                 <option value=""> Selecione um tipo de tarifa </option>
                 <option value="Convencional - Florianópolis"> Convencional - Florianópolis </option>
                 <option value="Social - Florianópolis"> Social - Florianópolis </option>
-                <option value="Executivo Urbano - Florianopolis"> Executivo Urbano - Florianopolis </option>
-                <option value="Executivo Urbano - Florianopolis"> Executivo Urbano - Florianopolis </option>
+                <option value="Executivo Urbano - Florianópolis"> Executivo Urbano - Florianópolis </option>
+                <option value="Executivo Distrital - Florianópolis"> Executivo Distrital - Florianópolis </option>
             </select> <br>
             <br>
             DATA DE VIGÊNCIA<br>
@@ -47,6 +50,9 @@
     <div>
         <h2>Intermunicipal</h2>
         <form action="cadastrarTarifa_bd.php" method="post">
+        CATEGORIA<br>
+            <input id="input" type="text" name="categoria" value="Intemunicipal" disabled> <br>
+            <br>
             VALOR<br>
             <input id="input" type="text" name="valor"> <br>
             <br>
@@ -81,6 +87,9 @@
     <div>
         <h2>São José - Municipal</h2>
         <form action="cadastrarTarifa_bd.php" method="post">
+            CATEGORIA<br>
+            <input id="input" type="text" name="categoria" value="São José - Municipal" disabled> <br>
+            <br>
             VALOR<br>
             <input id="input" type="text" name="valor"> <br>
             <br>
@@ -103,6 +112,9 @@
     <div>
         <h2>Palhoça - Municipal</h2>
         <form action="cadastrarTarifa_bd.php" method="post">
+            CATEGORIA<br>
+            <input id="input" type="text" name="categoria" value="Palhoça - Municipal" disabled> <br>
+            <br>
             VALOR<br>
             <input id="input" type="text" name="valor"> <br>
             <br>
@@ -125,6 +137,9 @@
     <div>
         <h2>Biguaçu - Municipal</h2>
         <form action="cadastrarTarifa_bd.php" method="post">
+            CATEGORIA<br>
+            <input id="input" type="text" name="categoria" value="Biguaçu - Municipal" disabled> <br>
+            <br>
             VALOR<br>
             <input id="input" type="text" name="valor"> <br>
             <br>
@@ -132,7 +147,7 @@
             <select id="select" name="tipo">
                 <option value=""> Selecione um tipo de tarifa </option>
                 <option value="Patamar BM1"> Patamar BM1 </option>
-                <option value="Patamar BM2"> Patamar BM </option>                           
+                <option value="Patamar BM2"> Patamar BM2 </option>                           
             </select> <br>
             <br>
             DATA DE VIGÊNCIA<br>
@@ -144,6 +159,9 @@
     <div>
         <h2>Antônio Carlos - Municipal</h2>
         <form action="cadastrarTarifa_bd.php" method="post">
+            CATEGORIA<br>
+            <input id="input" type="text" name="categoria" value="Antônio Carlos - Municipal" disabled> <br>
+            <br>
             VALOR<br>
             <input id="input" type="text" name="valor"> <br>
             <br>

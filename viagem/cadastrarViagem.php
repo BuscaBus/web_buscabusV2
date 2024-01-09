@@ -1,6 +1,6 @@
 <?php
 
-include_once("../conexao.php");
+include_once("../conexao.php"); 
 
 $id = $_GET['id'];
 $sql_editar = mysqli_query($mysqli, "SELECT * FROM linha WHERE id_linha = '$id'");
@@ -30,10 +30,10 @@ $dados = mysqli_fetch_array($sql_editar);
             font-family: sans-serif;
         }
         #td1{
-            width: 350px;
+            width: 375px;
         }
         #td2{
-            width: 80px;
+            width: 140px;
         }
         #td3{
             width: 80px;
@@ -93,18 +93,18 @@ $dados = mysqli_fetch_array($sql_editar);
             $sql_consulta = mysqli_query($mysqli, "SELECT * FROM viagem WHERE id_linha = '$dados[0]' ORDER BY sentido_viagem ASC");
             $total_reg = mysqli_num_rows($sql_consulta);    
 
-            while($dados = mysqli_fetch_array($sql_consulta)){
+            while($dados1 = mysqli_fetch_array($sql_consulta)){
             
             ?> 
 
             <tr>
-                <td id="td1"> <?=$dados[2]?></td>
-                <td id="td2"> <?=$dados[3]?></td>
-                <td id="td3"> <?=$dados[4]?></td>
-                <td> <a href = "../horario/cadastrarHorario.php?id=<?=$dados[0]?>">HORARIOS </a> </td>
-                <td> <a href = "../ponto_viagem/cadastrarPontoViagem.php?id=<?=$dados[0]?>">PONTOS </a> </td>
-                <td> <a href = "editarViagem.php?id=<?=$dados[0]?>">EDITAR </a> </td>
-                <td> <a href = "excluirViagem.php?id=<?=$dados[0]?>">EXCLUIR </a> </td>
+                <td id="td1"> <?=$dados1[2]?></td>
+                <td id="td2"> <?=$dados1[3]?></td>
+                <td id="td3"> <?=$dados1[4]?></td>
+                <td> <a href = "../horario/cadastrarHorario.php?id=<?=$dados1[0]?>">HORARIOS </a> </td>
+                <td> <a href = "../ponto_viagem/cadastrarPontoViagem.php?id=<?=$dados1[0]?>">PONTOS </a> </td>
+                <td> <a href = "editarViagem.php?id=<?=$dados1[0]?>">EDITAR </a> </td>
+                <td> <a href = "excluirViagem.php?id=<?=$dados1[0]?>">EXCLUIR </a> </td>
             </tr>  
 
             <?php } ?>           

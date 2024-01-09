@@ -26,7 +26,7 @@ include_once("../conexao.php");
     <div>    
     <h2>Cadastrar Ponto</h2>
         <form action="cadastrarPonto_bd.php" method="post">
-            ENDEREÇO <br>
+            PONTO <br>
             <input  id="input" type="text" name="endereco"> <br>
             <br>
             BAIRRO <br>
