@@ -5,16 +5,16 @@ include_once('../conexao.php');
 $filtro_sql = "";
 $filtro_sql_buscar = "";
 
-//Consulta pelo select filtar
+//Consulta pelo select filtrar por empresa
 if($_POST != NULL){
     $filtro_select = $_POST["filtro_select"];
     $filtro_sql = "WHERE nome_empresa = '$filtro_select'";
 }
-//Consuta pelo imput buscar
-//if($_GET != NULL){
-    //$filtro_buscar = $_GET["filtro_buscar"];
-    //$filtro_sql_buscar = "WHERE cod_linha = '$filtro_buscar' OR nome_linha LIKE '%$filtro_buscar%'";
-//}
+//Consuta pelo imput buscar por código ou nome linha 
+if($_GET != NULL){
+    $filtro_buscar = $_GET["filtro_buscar"];
+    $filtro_sql_buscar = "WHERE cod_linha = '$filtro_buscar' OR nome_linha LIKE '%$filtro_buscar%'";
+}
 ?>
 
 <!DOCTYPE html>
@@ -59,13 +59,13 @@ if($_POST != NULL){
     <a href ="cadastrarLinha.php">NOVA LINHA </a> <br>
     <hr>  
     <br>    
-    <!--Form para pesquisa pelo campo busca-->
+    <!--Form para pesquisa pelo código ou nome da linha (campo busca)-->
     <form method="GET" class="font-form">        
         Pesquisar:
         <input id="input_buscar" type="text" name="filtro_buscar"> 
         <input type="submit" value="BUSCAR">
     </form>           
-    <!--Form para pesquisa pelo select-->   
+    <!--Form para filtrar por empresa (pesquisa pelo select)-->   
     <form method="POST" class="font-form">        
         Filtrar por empresa: 
             <select name="filtro_select" id="select_filtro">
@@ -118,8 +118,7 @@ if($_POST != NULL){
              $result_pg = "SELECT COUNT(id_linha) AS num_result FROM linha";
              $resultado_pg = mysqli_query($mysqli, $result_pg);   
              $row_pg = mysqli_fetch_assoc($resultado_pg);
-             //echo $row_pg['num_result'];
- 
+           
              //Quantidade de páginas
              $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);   
             ?> 
