@@ -47,7 +47,8 @@ $dados = mysqli_fetch_array($sql_editar);
     <div>
     <h2>Editar Viagem</h2>
         <form action="atualizarViagem.php" method="post">
-            <input type="hidden" name="id" value = '<?=$dados[0]?>'>
+            <input type="hidden" name="id_viagem" value = '<?=$dados[0]?>'>
+            <input type="hidden" name="id_linha" value = '<?=$dados[1]?>'>
             VIAGEM <br>
             <input id="input1" type="text" name="viagem" value = '<?=$dados[2]?>'> <br>
             <br>

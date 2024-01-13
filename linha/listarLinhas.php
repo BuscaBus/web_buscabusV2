@@ -11,10 +11,10 @@ if($_POST != NULL){
     $filtro_sql = "WHERE nome_empresa = '$filtro_select'";
 }
 //Consuta pelo imput buscar por código ou nome linha 
-if($_GET != NULL){
+/*if($_GET != NULL){
     $filtro_buscar = $_GET["filtro_buscar"];
     $filtro_sql_buscar = "WHERE cod_linha = '$filtro_buscar' OR nome_linha LIKE '%$filtro_buscar%'";
-}
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -60,11 +60,11 @@ if($_GET != NULL){
     <hr>  
     <br>    
     <!--Form para pesquisa pelo código ou nome da linha (campo busca)-->
-    <form method="GET" class="font-form">        
+    <!--<form method="GET" class="font-form">        
         Pesquisar:
         <input id="input_buscar" type="text" name="filtro_buscar"> 
         <input type="submit" value="BUSCAR">
-    </form>           
+    </form>-->           
     <!--Form para filtrar por empresa (pesquisa pelo select)-->   
     <form method="POST" class="font-form">        
         Filtrar por empresa: 
@@ -109,7 +109,7 @@ if($_GET != NULL){
             $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
             //Consulta no banco de dados e tras os resultados    
-            $sql_consulta = mysqli_query($mysqli, "SELECT e.nome_empresa, Id_linha, l.cod_linha, l.nome_linha, l.tipo_linha, DATE_FORMAT(l.data_vigencia,'%d/%m/%y'), t.valor_tarifa FROM linha AS l JOIN empresa AS e ON l.id_empresa = e.id_empresa JOIN tarifa AS t ON l.id_tarifa = t.id_tarifa $filtro_sql $filtro_sql_buscar ORDER BY cod_linha ASC LIMIT $inicio, $qnt_result_pg");
+            $sql_consulta = mysqli_query($mysqli, "SELECT e.nome_empresa, Id_linha, l.cod_linha, l.nome_linha, l.tipo_linha, DATE_FORMAT(l.data_vigencia,'%d/%m/%y'), t.valor_tarifa FROM linha AS l JOIN empresa AS e ON l.id_empresa = e.id_empresa JOIN tarifa AS t ON l.id_tarifa = t.id_tarifa $filtro_sql ORDER BY cod_linha ASC LIMIT $inicio, $qnt_result_pg");
             $total_reg = mysqli_num_rows($sql_consulta);    
 
             while($dados = mysqli_fetch_array($sql_consulta)){

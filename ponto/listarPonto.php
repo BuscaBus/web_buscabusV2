@@ -11,10 +11,10 @@ if($_POST != NULL){
     $filtro_sql = "WHERE cidade_ponto = '$filtro_select'";
 }
 //Consuta pelo imput buscar
-//if($_GET != NULL){
-    //$filtro_buscar = $_GET["filtro_buscar"];
-    //$filtro_sql_buscar = "WHERE id_ponto = '$filtro_buscar' OR endereco_ponto LIKE '%$filtro_buscar%' OR bairro_ponto LIKE '%$filtro_buscar%'";
-//}
+/*if($_GET != NULL){
+    $filtro_buscar = $_GET["filtro_buscar"];
+    $filtro_sql_buscar = "WHERE id_ponto = '$filtro_buscar' OR endereco_ponto LIKE '%$filtro_buscar%' OR bairro_ponto LIKE '%$filtro_buscar%'";
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -58,11 +58,11 @@ if($_POST != NULL){
     <hr>          
     <br>
     <!--Form para pesquisa pelo campo busca-->
-    <form method="GET" class="font-form">        
+    <!--<form method="GET" class="font-form">        
         Pesquisar:
         <input id="input_buscar" type="text" name="filtro_buscar"> 
         <input type="submit" value="BUSCAR">
-    </form> 
+    </form>-->
     <!--Form para pesquisar pelo filtro da cidade-->     
     <form method = "POST" class="font-form" id="form-pesquisa">
         Filtrar por cidade: 
@@ -87,7 +87,7 @@ if($_POST != NULL){
                 <th id="th2">PONTO</th>
                 <th id="th3">BAIRRO</th>
                 <th id="th4">CIDADE</th>    
-                <th id="th5">AÇÃO</th>                
+                <th id="th5" colspan="2">AÇÃO</th>                
             </tr>
         </thead>
         <tbod>
@@ -103,7 +103,7 @@ if($_POST != NULL){
             $inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
  
             //Consulta no banco de dados e tras os resultados    
-            $sql_consulta = mysqli_query($mysqli, "SELECT * FROM ponto $filtro_sql $filtro_sql_buscar ORDER BY endereco_ponto ASC");
+            $sql_consulta = mysqli_query($mysqli, "SELECT * FROM ponto $filtro_sql $filtro_sql_buscar ORDER BY endereco_ponto ASC LIMIT $inicio, $qnt_result_pg");
             $total_reg = mysqli_num_rows($sql_consulta);    
 
             while($dados = mysqli_fetch_array($sql_consulta)){
@@ -112,8 +112,7 @@ if($_POST != NULL){
             $result_pg = "SELECT COUNT(id_ponto) AS num_result FROM ponto";
             $resultado_pg = mysqli_query($mysqli, $result_pg);   
             $row_pg = mysqli_fetch_assoc($resultado_pg);
-            //echo $row_pg['num_result'];
-     
+                
             //Quantidade de páginas
             $quantidade_pg = ceil($row_pg['num_result'] / $qnt_result_pg);  
             
@@ -123,6 +122,7 @@ if($_POST != NULL){
                 <td> <?=$dados[1]?></td>
                 <td> <?=$dados[2]?></td>
                 <td> <?=$dados[3]?></td>
+                <td> <a href = "editarPonto.php?id=<?=$dados[0]?>">EDITAR </a> </td>
                 <td> <a href = "excluirPonto.php?id=<?=$dados[0]?>">EXCLUIR </a> </td>            
             </tr>  
             

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principal</title>
     <link rel="stylesheet" href="./estilo.css">
-
 </head>
 <body>
     <h1>Seja Bem-Vindo ao Sistema de Cadastro BuscaBus</h1>
@@ -19,8 +18,9 @@
         <a href="tarifa/listarTarifa.php"><li>TARIFAS</li></a>
         <a href="ponto/listarPonto.php"><li>PONTOS</li></a>
         <a href="mapa/mapa.php"><li>MAPA</li></a>
-        <a href="carregar_dados/carregarDados.php"><li>CARREGAR DADOS</li></a>
-        <a href="verHorariosBox.php"><li>HORÁRIOS POR BOX</li></a>
+        <!--<a href="carregar_dados/carregarDados.php"><li>CARREGAR DADOS</li></a>-->            
     </ul>
+    <br>
+    <a href="index.html">Sair do sistema</a>
 </body>
 </html>
